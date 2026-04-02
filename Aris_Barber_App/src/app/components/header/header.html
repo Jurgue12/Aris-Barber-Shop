@@ -1,0 +1,52 @@
+<header class="h-16 flex items-center justify-between bg-white shadow px-6 border-b border-slate-200">
+
+ 
+  <div class="flex items-center gap-3">
+    <img src="/images/ari-barber.jpg"
+         alt="Logo"
+         class="w-10 h-10 rounded-full shadow border border-slate-300" />
+
+    <span class="text-2xl font-extrabold text-slate-800 tracking-tight">
+      Ari's Barber
+    </span>
+  </div>
+
+
+  <div class="flex items-center gap-4">
+
+ 
+    <span class="text-lg font-semibold text-slate-700">
+      Bienvenido,
+      <span class="text-indigo-600">
+        {{ srvAuth.usuarioActual().nombre || 'Invitado' }}
+      </span>
+    </span>
+
+
+    <button 
+      *ngIf="srvAuth.usuarioActual().rol === -1"
+      class="p-2 rounded-full hover:bg-slate-200 transition"
+      (click)="abrirLogin()">
+      <mat-icon class="text-slate-800 text-3xl">login</mat-icon>
+    </button>
+
+ 
+    <button 
+      *ngIf="srvAuth.usuarioActual().rol !== -1"
+      [matMenuTriggerFor]="menuUsuario"
+      class="p-2 rounded-full hover:bg-slate-200 transition">
+      <mat-icon class="text-slate-800 text-3xl">account_circle</mat-icon>
+    </button>
+
+    <mat-menu #menuUsuario="matMenu">
+  
+
+      <button mat-menu-item (click)="cerrarSesion()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+
+  </div>
+
+</header>

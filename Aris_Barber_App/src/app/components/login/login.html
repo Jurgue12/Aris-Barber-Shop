@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <h2 class="titulo">Iniciar sesión</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onLogin()" class="form">
+
+    
+      <div class="campo">
+        <label>Usuario</label>
+        <input
+          type="text"
+          formControlName="idUsuario"
+         
+        />
+      </div>
+
+  
+      <div class="campo">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          formControlName="password"
+        
+        />
+      </div>
+
+  
+      <button type="submit" class="btn-login">Entrar</button>
+
+    
+      <p class="crear">
+        ¿No tienes cuenta?
+        <span (click)="abrirRegister()">Crear una</span>
+      </p>
+
+    </form>
+
+  </div>
+
+</div>

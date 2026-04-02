@@ -1,0 +1,19 @@
+.btn-ocupado {
+  background-color: #ffcccc !important;
+  border: 1px solid red !important;
+  color: red !important;
+  cursor: not-allowed !important;
+}
+
+.btn-seleccionada {
+  background-color: #3f51b5 !important;
+  color: white !important;
+  border-color: #303f9f !important;
+}
+
+.btn-hora {
+  background-color: #e6ffe6 !important;
+  border-color: #33cc33 !important;
+  color: #006600 !important;
+}
+

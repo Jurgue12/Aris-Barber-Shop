@@ -1,0 +1,86 @@
+<div class="flex items-center justify-center p-4">
+  <div class="bg-white shadow-2xl rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto p-8 border border-slate-200">
+
+  
+    <h2 class="text-3xl font-extrabold text-center text-slate-800 tracking-tight mb-8">
+      Crear cuenta nueva
+    </h2>
+
+ 
+    <form [formGroup]="form" (ngSubmit)="onRegister()" class="flex flex-col gap-6">
+
+ 
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">ID Usuario*</label>
+        <input type="text"
+               formControlName="idUsuario"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+     
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Correo electrónico*</label>
+        <input type="email"
+               formControlName="correo"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+    
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Contraseña*</label>
+        <input type="password"
+               formControlName="password"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+   
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Nombre*</label>
+        <input type="text"
+               formControlName="nombre"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+  
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Primer apellido*</label>
+        <input type="text"
+               formControlName="apellido1"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+    
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Segundo apellido</label>
+        <input type="text"
+               formControlName="apellido2"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+   
+      <div>
+        <label class="block text-slate-700 font-semibold mb-1">Celular</label>
+        <input type="text"
+               formControlName="celular"
+               class="w-full p-3 rounded-xl border border-slate-300 shadow-sm bg-slate-50
+               focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition" />
+      </div>
+
+    
+      <button type="submit"
+              class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl
+                     shadow-md transition transform hover:scale-[1.02]">
+        Registrarme
+      </button>
+
+    </form>
+
+  </div>
+</div>
+

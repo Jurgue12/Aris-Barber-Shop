@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.db
+*.cache
+*.log
+*.suo
+*.pdb
+*.dll
+*.exe
+.idea/
+.env
+appsettings.Development.json

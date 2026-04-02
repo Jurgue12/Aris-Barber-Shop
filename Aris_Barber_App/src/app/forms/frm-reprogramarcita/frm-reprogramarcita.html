@@ -1,0 +1,75 @@
+
+<form [formGroup]="frmCita" (ngSubmit)="reprogramar()">
+  <h2 mat-dialog-title class="flex items-center gap-2">
+    <mat-icon color="primary">event</mat-icon> 
+    Reprogramar cita
+  </h2>
+
+  <mat-divider class="my-2"></mat-divider>
+
+  <mat-dialog-content class="space-y-4">
+
+    <!-- Calendario para fecha -->
+  <mat-form-field appearance="fill" class="w-full rounded-xl shadow-lg border border-gray-300 bg-gray-50 hover:bg-gray-100 transition-all duration-300">
+  <mat-label class="font-bold text-gray-800 tracking-wide">
+    <mat-icon class="mr-2 text-primary">calendar_month</mat-icon> Seleccione el día de reprogramación
+  </mat-label>
+  <input 
+    matInput 
+    [matDatepicker]="picker" 
+    formControlName="fecha" 
+    [min]="minDate"
+     (dateChange)="onFechaChange($event.value)"
+    placeholder="Elija la fecha de su reprogramacion de la cita" 
+    class="text-base font-medium text-gray-700"
+  >
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon class="text-primary" style="font-size: 30px;">
+      event_available
+    </mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+    <!-- Botones para horas -->
+    <div class="flex flex-wrap gap-2 mt-2 justify-center">
+
+<button
+  type="button"
+  mat-stroked-button
+  *ngFor="let hora of horariosDisponibles"
+  (click)="!hora.ocupado && seleccionarHora(hora.hora)"
+  [disabled]="hora.ocupado"
+
+  [color]="hora.ocupado ? 'warn' : 'primary'"
+
+  [ngClass]="{
+    'btn-ocupado': hora.ocupado,
+    'btn-seleccionada': horaSeleccionada === hora.hora,
+    'btn-hora': !hora.ocupado && horaSeleccionada !== hora.hora
+  }"
+>
+
+  {{ hora.hora }}
+</button>
+</div>
+
+
+
+    <input type="hidden" formControlName="idUsuario">
+    <input type="hidden" formControlName="idServicio">
+
+  </mat-dialog-content>
+
+  <mat-divider class="my-2"></mat-divider>
+
+  <mat-dialog-actions class="flex justify-end gap-2">
+    <button mat-raised-button color="primary" type="submit">
+      <mat-icon>check</mat-icon> Reprogramar
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close>
+      <mat-icon>close</mat-icon> Cancelar
+    </button>
+  </mat-dialog-actions>
+</form>
